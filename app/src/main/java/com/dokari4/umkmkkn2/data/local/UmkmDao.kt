@@ -12,5 +12,8 @@ interface UmkmDao {
     fun insertUmkm(umkmEntity: UmkmEntity)
 
     @Query("SELECT * FROM Umkm_table ORDER BY id ASC")
-    fun getAllUmkm(): LiveData<List<UmkmEntity>>
+    fun getAllUmkm(): LiveData<MutableList<UmkmEntity>>
+
+    @Query("SELECT * FROM Umkm_table WHERE umkmName like :umkmName")
+    fun searchUmkm(umkmName: String): LiveData<MutableList<UmkmEntity>>
 }

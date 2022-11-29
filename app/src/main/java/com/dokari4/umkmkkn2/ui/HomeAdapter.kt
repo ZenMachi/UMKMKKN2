@@ -1,4 +1,4 @@
-package com.dokari4.umkmkkn2
+package com.dokari4.umkmkkn2.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dokari4.umkmkkn2.data.local.UmkmEntity
 import com.dokari4.umkmkkn2.databinding.ItemRowBinding
 
-class HomeAdapter(private  val context: Context, private val data: MutableList<UmkmEntity> = mutableListOf(), private val listener: (UmkmEntity) -> Unit): ListAdapter<UmkmEntity, HomeAdapter.MyHolder>(DiffutilCallBack) {
+class HomeAdapter(private  val context: Context, private val data: MutableList<UmkmEntity> = mutableListOf(), private val listener: (UmkmEntity) -> Unit): ListAdapter<UmkmEntity, HomeAdapter.MyHolder>(
+    DiffutilCallBack
+) {
     object DiffutilCallBack: DiffUtil.ItemCallback<UmkmEntity>(){
         override fun areItemsTheSame(oldItem: UmkmEntity, newItem: UmkmEntity): Boolean {
             return oldItem == newItem
@@ -31,7 +33,6 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
     inner class MyHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: UmkmEntity?) {
             binding.tvName.text = post?.umkmName
-//            binding.tvDescription.text = post?.noteDescription
             binding.btnMaps.setOnClickListener {
                 Toast.makeText(context, post?.umkmPhoneNumber, Toast.LENGTH_SHORT)
                     .show()

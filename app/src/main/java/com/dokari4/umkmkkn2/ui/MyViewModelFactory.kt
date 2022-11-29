@@ -1,8 +1,9 @@
-package com.dokari4.umkmkkn2
+package com.dokari4.umkmkkn2.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dokari4.umkmkkn2.data.local.UmkmDatabase
+import com.dokari4.umkmkkn2.home.HomeViewModel
 
 class MyViewModelFactory constructor(private val umkmDatabase: UmkmDatabase): ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

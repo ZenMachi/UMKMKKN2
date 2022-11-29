@@ -20,7 +20,7 @@ abstract class UmkmDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         UmkmDatabase::class.java,
-                        "notes"
+                        "umkm_database"
                     )
                         .addCallback(StartingData(context))
                         .build()
