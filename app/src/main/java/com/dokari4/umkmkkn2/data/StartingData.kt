@@ -23,7 +23,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
     }
 
     //Filling database with the data from JSON
-    private suspend fun fillWithStartingNotes(context: Context){
+    private fun fillWithStartingNotes(context: Context){
         //obtaining instance of data access object
         val dao = UmkmDatabase.getInstance(context)?.dao
 
@@ -59,7 +59,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
     // loads JSON data
     private fun loadJSONArray(context: Context): JSONArray?{
         //obtain input byte
-        val inputStream = context.resources.openRawResource(R.raw.notes)
+        val inputStream = context.resources.openRawResource(R.raw.umkm)
         //using Buffered reader to read the inputstream byte
         BufferedReader(inputStream.reader()).use {
             return JSONArray(it.readText())

@@ -1,6 +1,8 @@
 package com.dokari4.umkmkkn2.ui
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -24,18 +26,22 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
 
     }
 
-    fun setData(data: MutableList<UmkmEntity>) {
-        this.data.clear()
-        this.data.addAll(data)
-        notifyDataSetChanged()
-    }
+//    fun setData(data: MutableList<UmkmEntity>) {
+//        this.data.clear()
+//        this.data.addAll(data)
+//        notifyDataSetChanged()
+//    }
 
     inner class MyHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: UmkmEntity?) {
             binding.tvName.text = post?.umkmName
             binding.btnMaps.setOnClickListener {
-                Toast.makeText(context, post?.umkmPhoneNumber, Toast.LENGTH_SHORT)
-                    .show()
+                val url = Uri.parse(post?.umkmPhoneNumber)
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    url
+                )
+                context.startActivity(intent)
             }
         }
     }

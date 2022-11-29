@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dokari4.umkmkkn2.DetailActivity
 import com.dokari4.umkmkkn2.Utils
 import com.dokari4.umkmkkn2.ui.HomeAdapter
