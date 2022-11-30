@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -34,9 +33,9 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
 
     inner class MyHolder(private val binding: ItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: UmkmEntity?) {
-            binding.tvName.text = post?.umkmName
+            binding.tvName.text = post?.umkmNamaPengusaha
             binding.btnMaps.setOnClickListener {
-                val url = Uri.parse(post?.umkmPhoneNumber)
+                val url = Uri.parse(post?.umkmAlamatUsaha)
                 val intent = Intent(
                     Intent.ACTION_VIEW,
                     url

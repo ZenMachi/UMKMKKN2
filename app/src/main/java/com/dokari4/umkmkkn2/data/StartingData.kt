@@ -6,6 +6,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.dokari4.umkmkkn2.R
 import com.dokari4.umkmkkn2.data.local.UmkmDatabase
 import com.dokari4.umkmkkn2.data.local.UmkmEntity
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -37,12 +39,20 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
                     //variable to obtain the JSON object
                     val item = data.getJSONObject(i)
                     //Using the JSON object to assign data
-                    val umkmName = item.getString("note-title")
-                    val umkmPhoneNumber = item.getString("note-description")
+                    val umkmNamaPengusaha = item.getString("umkm-nama-pengusaha")
+                    val umkmAlamatUsaha = item.getString("umkm-alamat-usaha")
+                    val umkmJenisUsaha = item.getString("umkm-jenis-usaha")
+                    val umkmKodeInput = item.getString("umkm-kode-input")
+//                    val umkmFotoGaleri = item.getJSONArray("umkm-foto-galeri")
+//
+//                    val photoList = Array(umkmFotoGaleri.length()) {
+//                        umkmFotoGaleri.getString(it)
+//                    }
+
 
                     //data loaded to the entity
                     val umkmEntity = UmkmEntity(
-                        umkmName,umkmPhoneNumber
+                        umkmNamaPengusaha,umkmAlamatUsaha,umkmJenisUsaha,umkmKodeInput
                     )
 
                     //using dao to insert data to the database
@@ -59,7 +69,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
     // loads JSON data
     private fun loadJSONArray(context: Context): JSONArray?{
         //obtain input byte
-        val inputStream = context.resources.openRawResource(R.raw.umkm)
+        val inputStream = context.resources.openRawResource(R.raw.umkm_data)
         //using Buffered reader to read the inputstream byte
         BufferedReader(inputStream.reader()).use {
             return JSONArray(it.readText())

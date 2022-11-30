@@ -5,12 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dokari4.umkmkkn2.DetailActivity
 import com.dokari4.umkmkkn2.Utils
 import com.dokari4.umkmkkn2.ui.HomeAdapter
@@ -27,8 +23,10 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
                 this,
                 DetailActivity::class.java
             ).apply {
-                putExtra("umkmName", value.umkmName)
-                putExtra("phoneNumber", value.umkmPhoneNumber)
+                putExtra("umkmNamaPengusaha", value.umkmNamaPengusaha)
+                putExtra("umkmAlamatUsaha", value.umkmAlamatUsaha)
+                putExtra("umkmJenisUsaha", value.umkmJenisUsaha)
+                putExtra("umkmKodeInput", value.umkmKodeInput)
                 startActivity(this)
                 }
         }

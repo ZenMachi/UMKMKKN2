@@ -14,14 +14,23 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         //Get value from Intent
-        val umkmName = intent.getStringExtra("umkmName")
-        val phoneNumber = intent.getStringExtra("phoneNumber")
+        val umkmNamaPengusaha = intent.getStringExtra("umkmNamaPengusaha")
+        val umkmAlamatUsaha = intent.getStringExtra("umkmAlamatUsaha")
+        val umkmJenisUsaha = intent.getStringExtra("umkmJenisUsaha")
+        val umkmKodeInput = intent.getStringExtra("umkmKodeInput")
 
         //bind image and text
         binding.imgPhoto.setImageResource(R.drawable.screenshot)
-        binding.tvName.text = umkmName
+        binding.tvAddress.text = umkmAlamatUsaha
+        binding.tvVariant.text = umkmJenisUsaha
+        if (umkmKodeInput == "null") {
+            binding.tvCode.text = "Kode Input Belum Tersedia"
+        } else {
+            binding.tvCode.text = umkmKodeInput
+        }
+        binding.tvName.text = umkmNamaPengusaha
         binding.fabPhone.setOnClickListener {
-            Utils.showToast(this, "Message : $phoneNumber")
+            Utils.showToast(this, "Message : $umkmAlamatUsaha")
         }
     }
 }

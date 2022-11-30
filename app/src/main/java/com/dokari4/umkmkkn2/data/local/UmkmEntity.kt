@@ -5,9 +5,15 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Umkm_table")
 data class UmkmEntity (
-    val umkmName: String,
+    val umkmNamaPengusaha: String,
 
-    val umkmPhoneNumber: String,
+    val umkmAlamatUsaha: String,
+
+    val umkmJenisUsaha: String,
+
+    val umkmKodeInput: String?,
+
+//    val umkmFotoGaleri: Array<String>,
 
     @PrimaryKey(autoGenerate = true)
     var id : Long = 0,
