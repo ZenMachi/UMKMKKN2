@@ -3,6 +3,7 @@ package com.dokari4.umkmkkn2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dokari4.umkmkkn2.databinding.ActivityDetailBinding
+import com.dokari4.umkmkkn2.utils.Utils
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -19,12 +20,16 @@ class DetailActivity : AppCompatActivity() {
         val umkmJenisUsaha = intent.getStringExtra("umkmJenisUsaha")
         val umkmKodeInput = intent.getStringExtra("umkmKodeInput")
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         //bind image and text
         binding.imgPhoto.setImageResource(R.drawable.screenshot)
-        binding.tvAddress.text = umkmAlamatUsaha
-        binding.tvVariant.text = umkmJenisUsaha
+        binding.tvAddress.text = "Alamat\t\t: $umkmAlamatUsaha"
+        binding.tvVariant.text = "Jenis\t\t\t: $umkmJenisUsaha"
         if (umkmKodeInput == "null") {
-            binding.tvCode.text = "Kode Input Belum Tersedia"
+            binding.tvCode.text = "Kode Input Kosong"
         } else {
             binding.tvCode.text = umkmKodeInput
         }

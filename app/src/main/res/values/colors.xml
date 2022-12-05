@@ -7,4 +7,33 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="backgroundButton">@color/primaryContainer</color>
+    <color name="textButton">@color/onPrimaryContainer</color>
+    <color name="selectedBackgroundButton">@color/tertiaryContainer</color>
+    <color name="selectedTextButton">@color/onTertiaryContainer</color>
+    
+    <color name="primary">#964902</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">#FFDBC7</color>
+    <color name="onPrimaryContainer">#311300</color>
+
+    <color name="secondary">#765845</color>
+    <color name="onSecondary">#FFFFFF</color>
+    <color name="secondaryContainer">#FFDBC7</color>
+    <color name="onSecondaryContainer">#2B1608</color>
+
+    <color name="tertiary">#606132</color>
+    <color name="onTertiary">#FFFFFF</color>
+    <color name="tertiaryContainer">#E6E6AB</color>
+    <color name="onTertiaryContainer">#1C1D00</color>
+
+    <color name="background">#FFFBFF</color>
+    <color name="onBackground">#201A17</color>
+
+    <color name="surface">#14964902</color>
+    <color name="onSurface">#201A17</color>
+
+    <color name="surfaceVariant">#F4DED3</color>
+    <color name="onSurfaceVariant">#52443C</color>
 </resources>

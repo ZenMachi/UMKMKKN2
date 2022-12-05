@@ -1,18 +1,25 @@
 package com.dokari4.umkmkkn2.home
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dokari4.umkmkkn2.DetailActivity
-import com.dokari4.umkmkkn2.Utils
+import com.dokari4.umkmkkn2.R
+import com.dokari4.umkmkkn2.utils.Utils
 import com.dokari4.umkmkkn2.ui.HomeAdapter
 import com.dokari4.umkmkkn2.ui.MyViewModelFactory
 import com.dokari4.umkmkkn2.data.local.UmkmDatabase
 import com.dokari4.umkmkkn2.databinding.ActivityMainBinding
+import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 
 class HomeActivity : AppCompatActivity(), TextWatcher {
     private lateinit var binding: ActivityMainBinding
@@ -35,9 +42,11 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //init binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //set actionbar to be hidden
         supportActionBar?.hide()
 
@@ -49,7 +58,7 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
         viewModel = ViewModelProvider(this, myViewModelFactory).get(HomeViewModel::class.java)
 
         // set layout manager
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
 
         //bind recycler view to adapter
         binding.recyclerView.adapter = adapter
@@ -59,6 +68,10 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
             adapter.submitList(result)
         })
 
+        binding.btnAdd.setOnClickListener {
+            Utils.showToast(this, "SOON")
+        }
+
         //Set Clickable on end icon TextInputLayout
         binding.inputLayout.setEndIconOnClickListener {
             searchName()
@@ -66,6 +79,8 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
 
         //enable search text listener
         binding.edSearch.addTextChangedListener(this)
+
+        setToggleButton()
     }
 
     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -83,7 +98,7 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
     private fun searchName() {
         val query = binding.edSearch.text.toString().trim()
         if (query.isNotEmpty()) {
-            viewModel.searchUmkm("%$query%").observe(this, { result ->
+            viewModel.searchNamaPengusaha("%$query%").observe(this, { result ->
                 adapter.submitList(result)
             })
         } else {
@@ -91,7 +106,52 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
                 adapter.submitList(result)
             })
         }
-        // For Test Purpose
-        Utils.showToast(this, query)
+    }
+
+    private fun setToggleButton() {
+        binding.filterJenis.selectButton(R.id.btnAllJenis)
+        binding.filterJenis.setOnSelectListener {
+            when(it.id) {
+                R.id.btnAllJenis -> {
+                    viewModel.getUmkm.observe(this, { result ->
+                        adapter.submitList(result)
+                    })
+                }
+
+                R.id.btnKripik -> viewModel.searchJenisUsaha("%kripik%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnTempe -> viewModel.searchJenisUsaha("%tempe%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnJipang -> viewModel.searchJenisUsaha("%jipang%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnKembang -> viewModel.searchJenisUsaha("%kembang%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnKerupuk -> viewModel.searchJenisUsaha("%kerupuk%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnRambak -> viewModel.searchJenisUsaha("%rambak%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnRengginang -> viewModel.searchJenisUsaha("%rengginang%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                R.id.btnSlondok -> viewModel.searchJenisUsaha("%slondok%").observe(this, { result ->
+                    adapter.submitList(result)
+                })
+
+                else -> return@setOnSelectListener
+            }
+        }
     }
 }

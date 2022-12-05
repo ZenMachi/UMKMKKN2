@@ -11,9 +11,12 @@ interface UmkmDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUmkm(umkmEntity: UmkmEntity)
 
-    @Query("SELECT * FROM Umkm_table ORDER BY id ASC")
+    @Query("SELECT * FROM Umkm_table ORDER BY umkmNamaPengusaha ASC")
     fun getAllUmkm(): LiveData<MutableList<UmkmEntity>>
 
     @Query("SELECT * FROM Umkm_table WHERE umkmNamaPengusaha like :umkmNamaPengusaha")
-    fun searchUmkm(umkmNamaPengusaha: String): LiveData<MutableList<UmkmEntity>>
+    fun searchNamaPengusaha(umkmNamaPengusaha: String): LiveData<MutableList<UmkmEntity>>
+
+    @Query("select * from Umkm_table where umkmJenisUsaha like :umkmJenisUsaha")
+    fun searchJenisUsaha(umkmJenisUsaha: String): LiveData<MutableList<UmkmEntity>>
 }

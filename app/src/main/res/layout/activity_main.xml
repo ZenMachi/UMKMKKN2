@@ -2,59 +2,293 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.HomeActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:endIconDrawable="@drawable/ic_search_24"
-        app:endIconMode="custom"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="24dp"
         android:layout_marginVertical="24dp"
-        android:layout_marginHorizontal="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edSearch"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/product_sans_bold"
+            android:textColor="@color/onBackground"
+            android:ems="3"
+            android:lineSpacingMultiplier="1.05"
+            android:text="Cari \nUMKMu \nDisini"
+            android:textSize="48sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/rounded_rectangle"
+            android:backgroundTint="@color/tertiaryContainer"
+            app:tint="@color/onTertiaryContainer"
+            android:src="@drawable/ic_add_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:boxCornerRadiusBottomEnd="16dp"
+            app:boxCornerRadiusBottomStart="16dp"
+            app:boxCornerRadiusTopEnd="16dp"
+            app:boxCornerRadiusTopStart="16dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="24dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconDrawable="@drawable/ic_search_24"
+            app:endIconMode="custom"
+            app:boxBackgroundColor="@color/surface"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Cari Umkm" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Cari Umkm"/>
+            android:scrollbars="none"
+            android:layout_marginBottom="36dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="@id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+                    android:id="@+id/filterJenis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    app:toggle_requiredAmount="1"
+                    app:alignItems="center">
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+
+                        android:id="@+id/btnAllJenis"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Semua"
+                        app:toggle_fontFamily="/fonts/product_sans_regular.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+
+                        android:id="@+id/btnKripik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Keripik"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnTempe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Tempe"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnSlondok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Slondok"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnRengginang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Rengginang"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnJipang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Jipang"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnRambak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Rambak"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnKerupuk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Kerupuk"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                    <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+                        android:id="@+id/btnKembang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:toggle_text="Kembang"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
+                        app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
+                        app:toggle_selectedTextColor="@color/selectedTextButton"
+                        app:toggle_backgroundColor="@color/backgroundButton"
+                        app:toggle_textColor="@color/textButton"
+                        app:toggle_textSize="18sp"
+                        app:layout_flexShrink="0"
+                        app:toggle_textPaddingLeft="48dp"
+                        app:toggle_iconPaddingRight="32dp"
+                        app:toggle_iconPaddingVertical="28dp"
+                        app:toggle_iconGravity="left|center"
+                        app:toggle_icon="@drawable/ic_fastfood_24"/>
+
+                </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Explore"
-        android:textSize="36sp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:listitem="@layout/item_row"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="260dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_centerVertical="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline2"
+            tools:listitem="@layout/horizontal_item_row" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

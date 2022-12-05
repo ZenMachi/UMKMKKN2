@@ -1,4 +1,4 @@
-package com.dokari4.umkmkkn2
+package com.dokari4.umkmkkn2.utils
 
 import android.content.Context
 import android.widget.Toast

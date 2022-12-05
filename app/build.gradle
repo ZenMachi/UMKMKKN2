@@ -67,4 +67,7 @@ dependencies {
 
     //timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    //Custom Toggle Button
+    implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'
 }
