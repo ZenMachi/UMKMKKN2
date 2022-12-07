@@ -43,6 +43,8 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
                     val umkmAlamatUsaha = item.getString("umkm-alamat-usaha")
                     val umkmJenisUsaha = item.getString("umkm-jenis-usaha")
                     val umkmKodeInput = item.getString("umkm-kode-input")
+                    val umkmNomorTelepon = item.getString("umkm-nomor-telepon")
+                    val umkmLokasiMaps = item.getString("umkm-lokasi-maps")
 //                    val umkmFotoGaleri = item.getJSONArray("umkm-foto-galeri")
 //
 //                    val photoList = Array(umkmFotoGaleri.length()) {
@@ -52,7 +54,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
 
                     //data loaded to the entity
                     val umkmEntity = UmkmEntity(
-                        umkmNamaPengusaha,umkmAlamatUsaha,umkmJenisUsaha,umkmKodeInput
+                        umkmNamaPengusaha,umkmAlamatUsaha,umkmJenisUsaha,umkmKodeInput, umkmNomorTelepon, umkmLokasiMaps
                     )
 
                     //using dao to insert data to the database

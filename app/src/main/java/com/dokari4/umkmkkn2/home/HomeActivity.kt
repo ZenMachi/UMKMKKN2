@@ -34,6 +34,8 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
                 putExtra("umkmAlamatUsaha", value.umkmAlamatUsaha)
                 putExtra("umkmJenisUsaha", value.umkmJenisUsaha)
                 putExtra("umkmKodeInput", value.umkmKodeInput)
+                putExtra("umkmNomorTelepon", value.umkmNomorTelepon)
+                putExtra("umkmLokasiMaps", value.umkmLokasiMaps)
                 startActivity(this)
                 }
         }

@@ -1,5 +1,7 @@
 package com.dokari4.umkmkkn2
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dokari4.umkmkkn2.databinding.ActivityDetailBinding
@@ -19,6 +21,8 @@ class DetailActivity : AppCompatActivity() {
         val umkmAlamatUsaha = intent.getStringExtra("umkmAlamatUsaha")
         val umkmJenisUsaha = intent.getStringExtra("umkmJenisUsaha")
         val umkmKodeInput = intent.getStringExtra("umkmKodeInput")
+        val umkmNomorTelepon = intent.getStringExtra("umkmNomorTelepon")
+        val umkmLokasiMaps = intent.getStringExtra("umkmLokasiMaps")
 
         binding.btnBack.setOnClickListener {
             finish()
@@ -35,7 +39,22 @@ class DetailActivity : AppCompatActivity() {
         }
         binding.tvName.text = umkmNamaPengusaha
         binding.fabPhone.setOnClickListener {
-            Utils.showToast(this, "Message : $umkmAlamatUsaha")
+            if (umkmNomorTelepon == "null") {
+                Utils.showToast(this, "Nomor HP Belum Ditambahkan")
+            } else {
+                val url = Uri.parse("https://api.whatsapp.com/send/?phone=$umkmNomorTelepon&text=Halo+saya+ingin+memesan")
+                val intent = Intent(Intent.ACTION_VIEW, url)
+                startActivity(intent)
+            }
+        }
+        binding.btnMaps.setOnClickListener {
+            if (umkmLokasiMaps == "null") {
+                Utils.showToast(this, "Lokasi Maps Belum Terdaftar")
+            } else {
+                val url = Uri.parse(umkmLokasiMaps)
+                val intent = Intent(Intent.ACTION_VIEW, url)
+                startActivity(intent)
+            }
         }
     }
 }

@@ -13,6 +13,10 @@ data class UmkmEntity (
 
     val umkmKodeInput: String?,
 
+    val umkmNomorTelepon: String?,
+
+    val umkmLokasiMaps: String?,
+
 //    val umkmFotoGaleri: Array<String>,
 
     @PrimaryKey(autoGenerate = true)
