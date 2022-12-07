@@ -17,6 +17,8 @@ data class UmkmEntity (
 
     val umkmLokasiMaps: String?,
 
+    val umkmFotoUsaha: String?,
+
 //    val umkmFotoGaleri: Array<String>,
 
     @PrimaryKey(autoGenerate = true)

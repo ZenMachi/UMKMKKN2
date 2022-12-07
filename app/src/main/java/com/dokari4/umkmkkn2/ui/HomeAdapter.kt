@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.dokari4.umkmkkn2.R
 import com.dokari4.umkmkkn2.data.local.UmkmEntity
 import com.dokari4.umkmkkn2.databinding.HorizontalItemRowBinding
@@ -38,7 +39,14 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
     inner class MyHolder(private val binding: HorizontalItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: UmkmEntity?) {
 
-            binding.imgPhoto.setImageResource(R.drawable.screenshot)
+            if (post?.umkmFotoUsaha == "null") {
+                binding.imgPhoto.setImageResource(R.drawable.placeholder)
+            } else {
+                Glide
+                    .with(context)
+                    .load(post?.umkmFotoUsaha)
+                    .into(binding.imgPhoto)
+            }
             binding.tvNameOwner.text = post?.umkmNamaPengusaha
             binding.tvVariant.text = post?.umkmJenisUsaha
 

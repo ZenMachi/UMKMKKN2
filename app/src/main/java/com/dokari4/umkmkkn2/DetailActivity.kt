@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bumptech.glide.Glide
 import com.dokari4.umkmkkn2.databinding.ActivityDetailBinding
 import com.dokari4.umkmkkn2.utils.Utils
 
@@ -23,13 +24,21 @@ class DetailActivity : AppCompatActivity() {
         val umkmKodeInput = intent.getStringExtra("umkmKodeInput")
         val umkmNomorTelepon = intent.getStringExtra("umkmNomorTelepon")
         val umkmLokasiMaps = intent.getStringExtra("umkmLokasiMaps")
+        val umkmFotoUsaha = intent.getStringExtra("umkmFotoUsaha")
 
         binding.btnBack.setOnClickListener {
             finish()
         }
 
         //bind image and text
-        binding.imgPhoto.setImageResource(R.drawable.screenshot)
+        if (umkmFotoUsaha == "null") {
+            binding.imgPhoto.setImageResource(R.drawable.placeholder)
+        } else {
+            Glide
+                .with(this)
+                .load(umkmFotoUsaha)
+                .into(binding.imgPhoto)
+        }
         binding.tvAddress.text = "Alamat\t\t: $umkmAlamatUsaha"
         binding.tvVariant.text = "Jenis\t\t\t: $umkmJenisUsaha"
         if (umkmKodeInput == "null") {
