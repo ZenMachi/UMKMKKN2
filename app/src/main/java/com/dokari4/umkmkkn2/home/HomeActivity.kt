@@ -12,6 +12,7 @@ import androidx.core.view.get
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dokari4.umkmkkn2.AddActivity
 import com.dokari4.umkmkkn2.DetailActivity
 import com.dokari4.umkmkkn2.R
 import com.dokari4.umkmkkn2.utils.Utils
@@ -57,7 +58,7 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
         val umkmDatabase = UmkmDatabase.getInstance(this)
         val myViewModelFactory = MyViewModelFactory(umkmDatabase!!)
 
-        //ini viewModel
+        //init viewModel
         viewModel = ViewModelProvider(this, myViewModelFactory).get(HomeViewModel::class.java)
 
         // set layout manager
@@ -72,7 +73,8 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
         })
 
         binding.btnAdd.setOnClickListener {
-            Utils.showToast(this, "SOON")
+            val intent = Intent(this, AddActivity::class.java)
+            startActivity(intent)
         }
 
         //Set Clickable on end icon TextInputLayout

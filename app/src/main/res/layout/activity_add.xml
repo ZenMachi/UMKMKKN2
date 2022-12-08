@@ -18,7 +18,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/onTertiaryContainer" />
 
+    <ImageButton
+        android:id="@+id/btnSave"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="21dp"
+        android:background="@drawable/rounded_rectangle"
+        android:backgroundTint="@color/tertiaryContainer"
+        android:src="@drawable/ic_save_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/onTertiaryContainer" />
+
     <TextView
+        android:id="@+id/tvAddOrEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/product_sans_regular"
@@ -33,155 +46,126 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        android:padding="16dp"
+        android:paddingStart="16dp"
+        android:paddingBottom="16dp"
+        android:paddingEnd="16dp"
         android:background="@drawable/rounded_rectangle"
         app:layout_constraintTop_toBottomOf="@id/guidelineTop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_save_24"
-            app:borderWidth="0dp"
-            app:tint="@color/onTertiaryContainer"
-            android:backgroundTint="@color/tertiaryContainer"
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_margin="8dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutNamaPengusaha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            app:boxBackgroundColor="@color/surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edNamaPengusaha"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nama Pengusaha" />
+                android:layout_height="match_parent">
 
+                <EditText
+                    android:id="@+id/edNamaPengusaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Nama Pengusaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/edNamaUsaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Nama Usaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edNamaPengusaha"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutNamaUsaha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            android:layout_marginTop="12dp"
-            app:boxBackgroundColor="@color/surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutNamaPengusaha">
+                <EditText
+                    android:id="@+id/edJenisUsaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Jenis Usaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edNamaUsaha"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edNamaUsaha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nama Usaha" />
+                <EditText
+                    android:id="@+id/edAlamatUsaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Alamat Usaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edJenisUsaha"/>
 
+                <EditText
+                    android:id="@+id/edKodeInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Kode Usaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edAlamatUsaha"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <EditText
+                    android:id="@+id/edNomorTelepon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Masukan Nomor HP (62xxx)"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edKodeInput"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutJenisUsaha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            android:layout_marginTop="12dp"
-            app:boxBackgroundColor="@color/surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutNamaUsaha">
+                <EditText
+                    android:id="@+id/edLokasiMaps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Link Google Maps"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edNomorTelepon"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edJenisUsaha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Jenis Usaha" />
+                <EditText
+                    android:id="@+id/edFotoUsaha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:padding="16dp"
+                    android:hint="Link Foto Usaha"
+                    android:textColor="@color/onBackground"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/background"
+                    app:layout_constraintTop_toBottomOf="@id/edLokasiMaps"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutAlamatUsaha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            android:layout_marginTop="12dp"
-            app:boxBackgroundColor="@color/surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutJenisUsaha">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edAlamatUsaha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Alamat Usaha" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutKodeUsaha"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:boxCornerRadiusBottomEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxStrokeWidth="0dp"
-            app:boxStrokeWidthFocused="0dp"
-            android:layout_marginTop="12dp"
-            app:boxBackgroundColor="@color/surface"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutAlamatUsaha">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edKodeUsaha"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Kode Usaha" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

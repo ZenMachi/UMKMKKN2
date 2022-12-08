@@ -39,7 +39,7 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
     inner class MyHolder(private val binding: HorizontalItemRowBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(post: UmkmEntity?) {
 
-            if (post?.umkmFotoUsaha == "null") {
+            if (post?.umkmFotoUsaha == "null" || post?.umkmFotoUsaha == null || post?.umkmFotoUsaha.isEmpty()) {
                 binding.imgPhoto.setImageResource(R.drawable.placeholder)
             } else {
                 Glide

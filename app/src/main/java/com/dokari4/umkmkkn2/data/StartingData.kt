@@ -25,7 +25,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
     }
 
     //Filling database with the data from JSON
-    private fun fillWithStartingNotes(context: Context){
+    private suspend fun fillWithStartingNotes(context: Context){
         //obtaining instance of data access object
         val dao = UmkmDatabase.getInstance(context)?.dao
 
@@ -46,6 +46,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
                     val umkmNomorTelepon = item.getString("umkm-nomor-telepon")
                     val umkmLokasiMaps = item.getString("umkm-lokasi-maps")
                     val umkmFotoUsaha = item.getString("umkm-foto-usaha")
+                    val umkmNamaUsaha = item.getString("umkm-nama-usaha")
 //                    val umkmFotoGaleri = item.getJSONArray("umkm-foto-galeri")
 //
 //                    val photoList = Array(umkmFotoGaleri.length()) {
@@ -55,7 +56,7 @@ class StartingData(private val context: Context): RoomDatabase.Callback() {
 
                     //data loaded to the entity
                     val umkmEntity = UmkmEntity(
-                        umkmNamaPengusaha,umkmAlamatUsaha,umkmJenisUsaha,umkmKodeInput, umkmNomorTelepon, umkmLokasiMaps, umkmFotoUsaha
+                        umkmNamaPengusaha,umkmAlamatUsaha,umkmJenisUsaha,umkmKodeInput, umkmNomorTelepon, umkmLokasiMaps, umkmFotoUsaha, umkmNamaUsaha
                     )
 
                     //using dao to insert data to the database

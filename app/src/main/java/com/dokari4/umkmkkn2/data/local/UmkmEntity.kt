@@ -4,20 +4,22 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "Umkm_table")
-data class UmkmEntity (
+data class UmkmEntity(
     val umkmNamaPengusaha: String,
 
     val umkmAlamatUsaha: String,
 
     val umkmJenisUsaha: String,
 
-    val umkmKodeInput: String?,
+    val umkmKodeInput: String? = null,
 
-    val umkmNomorTelepon: String?,
+    val umkmNomorTelepon: String? = null,
 
-    val umkmLokasiMaps: String?,
+    val umkmLokasiMaps: String? = null,
 
-    val umkmFotoUsaha: String?,
+    val umkmFotoUsaha: String? = null,
+
+    val umkmNamaUsaha: String? = null,
 
 //    val umkmFotoGaleri: Array<String>,
 
