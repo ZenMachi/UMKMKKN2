@@ -107,7 +107,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         app:toggle_text="Semua"
-                        app:toggle_fontFamily="/fonts/product_sans_regular.ttf"
+                        app:toggle_fontFamily="/fonts/product_sans_bold.ttf"
                         app:toggle_selectedBackgroundColor="@color/selectedBackgroundButton"
                         app:toggle_selectedTextColor="@color/selectedTextButton"
                         app:toggle_backgroundColor="@color/backgroundButton"

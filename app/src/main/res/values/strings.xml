@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">UMKMu di Banyubiru</string>
+    <string name="title_edit">Edit Data</string>
+    <string name="edit_pengusaha">Nama Pengusaha</string>
+    <string name="edit_nama_usaha">Nama Usaha</string>
+    <string name="edit_jenis">Jenis Usaha</string>
+    <string name="edit_alamat">Alamat Usaha</string>
+    <string name="edit_kode_input">Kode Input Usaha</string>
+    <string name="edit_nomor_telepon">Masukan nomor HP (62xxx)</string>
+    <string name="edit_maps">Link Google Maps</string>
+    <string name="edit_foto_link">Link Foto Usaha</string>
+    <string name="btn_back">Tombol Kembali</string>
+    <string name="btn_save">Tombol Simpan</string>
 </resources>

@@ -45,6 +45,7 @@ class HomeAdapter(private  val context: Context, private val data: MutableList<U
                 Glide
                     .with(context)
                     .load(post?.umkmFotoUsaha)
+                    .placeholder(R.drawable.ic_downloading_24)
                     .into(binding.imgPhoto)
             }
             binding.tvNameOwner.text = post?.umkmNamaPengusaha

@@ -1,11 +1,13 @@
 package com.dokari4.umkmkkn2.home
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
@@ -31,7 +33,9 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
                 this,
                 DetailActivity::class.java
             ).apply {
+                putExtra("idUmkm", value.id)
                 putExtra("umkmNamaPengusaha", value.umkmNamaPengusaha)
+                putExtra("umkmNamaUsaha", value.umkmNamaUsaha)
                 putExtra("umkmAlamatUsaha", value.umkmAlamatUsaha)
                 putExtra("umkmJenisUsaha", value.umkmJenisUsaha)
                 putExtra("umkmKodeInput", value.umkmKodeInput)
@@ -80,6 +84,8 @@ class HomeActivity : AppCompatActivity(), TextWatcher {
         //Set Clickable on end icon TextInputLayout
         binding.inputLayout.setEndIconOnClickListener {
             searchName()
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(it.windowToken, 0)
         }
 
         //enable search text listener
